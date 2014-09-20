@@ -1,0 +1,46 @@
+A Basic Monte Carlo Simulator
+========================================================
+author: ElData
+date: September 19, 2014
+
+How Is This Useful?
+========================================================
+
+- Great for basic educational Visualization of the normal 
+distribution in statistics & finance: 
+http://www.mathsisfun.com/data/standard-normal-distribution.html
+- Instant visual feedback: The Graph dynamically changes as the inputs change
+- Quick & Easy to use:  Just move the slider(s)! 
+
+Why A Simple Monte Carlo Simulator and The Normal Distribution?
+========================================================
+
+The Normal distribution can be ueful in constructing Monte Carlo simulation.  In finance, it is commonly found in applications such as calculating the Value at Risk (VaR) of a portfolio, and in pricing financial options, and also for  estimating the liabilities in variable annuity contracts.
+
+- Monte Carlo methods in finance: http://en.wikipedia.org/wiki/Monte_Carlo_methods_in_finance
+- The main inspiration for this project: http://www.r-bloggers.com/quantitative-finance-applications-in-r-5-an-introduction-to-monte-carlo-simulation/
+- More info on The Monte Carlo Method: http://en.wikipedia.org/wiki/Monte_Carlo_method
+
+
+An Example Of How The Display Is Produced:
+========================================================
+
+
+```r
+n <- 1000            # 1000 observations
+z <- rnorm(n)        # mean = 0 and sd = 1 are defaults
+mu <- 0.10           # in finance-this is the expected return
+sd <- 0.15           # expected volatility
+delta_t <- (1/252)   # daily returns annualized (252 trading days in 1yr)
+Returns <- mu*delta_t + sd*z*sqrt(delta_t)
+```
+
+This Is An Example Of A Simulation Of 1000 Normally Distributed Random Observations:
+========================================================
+
+![plot of chunk unnamed-chunk-2](MCSim-figure/unnamed-chunk-2.png) 
+
+Check out the App: https://eldon.shinyapps.io/App-MCSim/
+App Code available at: https://github.com/eldata/DevDataProducts/tree/master/App-MCSim
+
+
